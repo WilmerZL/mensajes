@@ -77,5 +77,16 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+    public void SuscribirTema(View v) {
+        FirebaseMessaging.getInstance().subscribeToTopic("Grupaso7")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(MainActivity.this,
+                                task.isSuccessful()?"Suscripción exitosa":"Suscripción fallida" ,
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
 }
